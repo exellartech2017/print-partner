@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://gps.co.uk/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://gps.co.uk/">
+<wsdl:types>
+<s:schema elementFormDefault="qualified" targetNamespace="http://gps.co.uk/">
+<s:element name="GPSSubmitOrder">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="GPSSubmitOrderResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="GPSSubmitOrderResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="GPSSubmitSetupTitle">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="GPSSubmitSetupTitleResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="GPSSubmitSetupTitleResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="GPSSubmitOrderAck">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="GPSSubmitOrderAckResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="GPSSubmitOrderAckResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="GPSSubmitASN">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="GPSSubmitASNResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="GPSSubmitASNResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="RemoveFile">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="TitleRef" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="PartnerName" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="RemoveFileResponse">
+<s:complexType/>
+</s:element>
+<s:element name="GPSSubmitTitleStatus">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="GPSSubmitTitleStatusResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="GPSSubmitTitleStatusResult" type="s:boolean"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="GPSGetPinCode">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="isbn" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="requestedBy" type="tns:ERequestedBy"/>
+<s:element minOccurs="1" maxOccurs="1" name="noOfCodes" type="s:int"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:simpleType name="ERequestedBy">
+<s:restriction base="s:string">
+<s:enumeration value="ARE"/>
+<s:enumeration value="Markono"/>
+<s:enumeration value="Eb"/>
+<s:enumeration value="Griffin"/>
+<s:enumeration value="PG"/>
+<s:enumeration value="Eden"/>
+<s:enumeration value="Repro"/>
+<s:enumeration value="PODZA"/>
+<s:enumeration value="SHEGR"/>
+</s:restriction>
+</s:simpleType>
+<s:element name="GPSGetPinCodeResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="GPSGetPinCodeResult" type="tns:PinCodes"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="PinCodes">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="isbn" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="pinCodes" type="tns:ArrayOfString"/>
+<s:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ErrorDesc" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfString">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="GPSXmlGetPinCode">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="GPSXmlGetPinCodeResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="GPSXmlGetPinCodeResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="GPSAttachedPdfInvoice">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="GPSAttachedPdfInvoiceResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="GPSAttachedPdfInvoiceResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="string" nillable="true" type="s:string"/>
+<s:element name="boolean" type="s:boolean"/>
+<s:element name="PinCodes" nillable="true" type="tns:PinCodes"/>
+</s:schema>
+</wsdl:types>
+<wsdl:message name="GPSSubmitOrderSoapIn">
+<wsdl:part name="parameters" element="tns:GPSSubmitOrder"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitOrderSoapOut">
+<wsdl:part name="parameters" element="tns:GPSSubmitOrderResponse"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitSetupTitleSoapIn">
+<wsdl:part name="parameters" element="tns:GPSSubmitSetupTitle"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitSetupTitleSoapOut">
+<wsdl:part name="parameters" element="tns:GPSSubmitSetupTitleResponse"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitOrderAckSoapIn">
+<wsdl:part name="parameters" element="tns:GPSSubmitOrderAck"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitOrderAckSoapOut">
+<wsdl:part name="parameters" element="tns:GPSSubmitOrderAckResponse"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitASNSoapIn">
+<wsdl:part name="parameters" element="tns:GPSSubmitASN"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitASNSoapOut">
+<wsdl:part name="parameters" element="tns:GPSSubmitASNResponse"/>
+</wsdl:message>
+<wsdl:message name="RemoveFileSoapIn">
+<wsdl:part name="parameters" element="tns:RemoveFile"/>
+</wsdl:message>
+<wsdl:message name="RemoveFileSoapOut">
+<wsdl:part name="parameters" element="tns:RemoveFileResponse"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitTitleStatusSoapIn">
+<wsdl:part name="parameters" element="tns:GPSSubmitTitleStatus"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitTitleStatusSoapOut">
+<wsdl:part name="parameters" element="tns:GPSSubmitTitleStatusResponse"/>
+</wsdl:message>
+<wsdl:message name="GPSGetPinCodeSoapIn">
+<wsdl:part name="parameters" element="tns:GPSGetPinCode"/>
+</wsdl:message>
+<wsdl:message name="GPSGetPinCodeSoapOut">
+<wsdl:part name="parameters" element="tns:GPSGetPinCodeResponse"/>
+</wsdl:message>
+<wsdl:message name="GPSXmlGetPinCodeSoapIn">
+<wsdl:part name="parameters" element="tns:GPSXmlGetPinCode"/>
+</wsdl:message>
+<wsdl:message name="GPSXmlGetPinCodeSoapOut">
+<wsdl:part name="parameters" element="tns:GPSXmlGetPinCodeResponse"/>
+</wsdl:message>
+<wsdl:message name="GPSAttachedPdfInvoiceSoapIn">
+<wsdl:part name="parameters" element="tns:GPSAttachedPdfInvoice"/>
+</wsdl:message>
+<wsdl:message name="GPSAttachedPdfInvoiceSoapOut">
+<wsdl:part name="parameters" element="tns:GPSAttachedPdfInvoiceResponse"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitOrderHttpGetIn">
+<wsdl:part name="FileName" type="s:string"/>
+<wsdl:part name="xml" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitOrderHttpGetOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitSetupTitleHttpGetIn">
+<wsdl:part name="FileName" type="s:string"/>
+<wsdl:part name="xml" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitSetupTitleHttpGetOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitOrderAckHttpGetIn">
+<wsdl:part name="xml" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitOrderAckHttpGetOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitASNHttpGetIn">
+<wsdl:part name="xml" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitASNHttpGetOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="RemoveFileHttpGetIn">
+<wsdl:part name="TitleRef" type="s:string"/>
+<wsdl:part name="PartnerName" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="RemoveFileHttpGetOut"/>
+<wsdl:message name="GPSSubmitTitleStatusHttpGetIn">
+<wsdl:part name="xml" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitTitleStatusHttpGetOut">
+<wsdl:part name="Body" element="tns:boolean"/>
+</wsdl:message>
+<wsdl:message name="GPSGetPinCodeHttpGetIn">
+<wsdl:part name="isbn" type="s:string"/>
+<wsdl:part name="requestedBy" type="s:string"/>
+<wsdl:part name="noOfCodes" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSGetPinCodeHttpGetOut">
+<wsdl:part name="Body" element="tns:PinCodes"/>
+</wsdl:message>
+<wsdl:message name="GPSXmlGetPinCodeHttpGetIn">
+<wsdl:part name="xml" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSXmlGetPinCodeHttpGetOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="GPSAttachedPdfInvoiceHttpGetIn">
+<wsdl:part name="FileName" type="s:string"/>
+<wsdl:part name="xml" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSAttachedPdfInvoiceHttpGetOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitOrderHttpPostIn">
+<wsdl:part name="FileName" type="s:string"/>
+<wsdl:part name="xml" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitOrderHttpPostOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitSetupTitleHttpPostIn">
+<wsdl:part name="FileName" type="s:string"/>
+<wsdl:part name="xml" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitSetupTitleHttpPostOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitOrderAckHttpPostIn">
+<wsdl:part name="xml" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitOrderAckHttpPostOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitASNHttpPostIn">
+<wsdl:part name="xml" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitASNHttpPostOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="RemoveFileHttpPostIn">
+<wsdl:part name="TitleRef" type="s:string"/>
+<wsdl:part name="PartnerName" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="RemoveFileHttpPostOut"/>
+<wsdl:message name="GPSSubmitTitleStatusHttpPostIn">
+<wsdl:part name="xml" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSSubmitTitleStatusHttpPostOut">
+<wsdl:part name="Body" element="tns:boolean"/>
+</wsdl:message>
+<wsdl:message name="GPSGetPinCodeHttpPostIn">
+<wsdl:part name="isbn" type="s:string"/>
+<wsdl:part name="requestedBy" type="s:string"/>
+<wsdl:part name="noOfCodes" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSGetPinCodeHttpPostOut">
+<wsdl:part name="Body" element="tns:PinCodes"/>
+</wsdl:message>
+<wsdl:message name="GPSXmlGetPinCodeHttpPostIn">
+<wsdl:part name="xml" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSXmlGetPinCodeHttpPostOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="GPSAttachedPdfInvoiceHttpPostIn">
+<wsdl:part name="FileName" type="s:string"/>
+<wsdl:part name="xml" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="GPSAttachedPdfInvoiceHttpPostOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:portType name="GlobalPrintingServicesSoap">
+<wsdl:operation name="GPSSubmitOrder">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Receive Order file content will check that xml is valid and customer ref is not duplicated</wsdl:documentation>
+<wsdl:input message="tns:GPSSubmitOrderSoapIn"/>
+<wsdl:output message="tns:GPSSubmitOrderSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitSetupTitle">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Receive Setup Title xml will check xml is valid</wsdl:documentation>
+<wsdl:input message="tns:GPSSubmitSetupTitleSoapIn"/>
+<wsdl:output message="tns:GPSSubmitSetupTitleSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitOrderAck">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Receiving partner Order Acknowledgement</wsdl:documentation>
+<wsdl:input message="tns:GPSSubmitOrderAckSoapIn"/>
+<wsdl:output message="tns:GPSSubmitOrderAckSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitASN">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Receiving partner ASN</wsdl:documentation>
+<wsdl:input message="tns:GPSSubmitASNSoapIn"/>
+<wsdl:output message="tns:GPSSubmitASNSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="RemoveFile">
+<wsdl:input message="tns:RemoveFileSoapIn"/>
+<wsdl:output message="tns:RemoveFileSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitTitleStatus">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Title handShake</wsdl:documentation>
+<wsdl:input message="tns:GPSSubmitTitleStatusSoapIn"/>
+<wsdl:output message="tns:GPSSubmitTitleStatusSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSGetPinCode">
+<wsdl:input message="tns:GPSGetPinCodeSoapIn"/>
+<wsdl:output message="tns:GPSGetPinCodeSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSXmlGetPinCode">
+<wsdl:input message="tns:GPSXmlGetPinCodeSoapIn"/>
+<wsdl:output message="tns:GPSXmlGetPinCodeSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSAttachedPdfInvoice">
+<wsdl:input message="tns:GPSAttachedPdfInvoiceSoapIn"/>
+<wsdl:output message="tns:GPSAttachedPdfInvoiceSoapOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:portType name="GlobalPrintingServicesHttpGet">
+<wsdl:operation name="GPSSubmitOrder">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Receive Order file content will check that xml is valid and customer ref is not duplicated</wsdl:documentation>
+<wsdl:input message="tns:GPSSubmitOrderHttpGetIn"/>
+<wsdl:output message="tns:GPSSubmitOrderHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitSetupTitle">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Receive Setup Title xml will check xml is valid</wsdl:documentation>
+<wsdl:input message="tns:GPSSubmitSetupTitleHttpGetIn"/>
+<wsdl:output message="tns:GPSSubmitSetupTitleHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitOrderAck">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Receiving partner Order Acknowledgement</wsdl:documentation>
+<wsdl:input message="tns:GPSSubmitOrderAckHttpGetIn"/>
+<wsdl:output message="tns:GPSSubmitOrderAckHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitASN">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Receiving partner ASN</wsdl:documentation>
+<wsdl:input message="tns:GPSSubmitASNHttpGetIn"/>
+<wsdl:output message="tns:GPSSubmitASNHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="RemoveFile">
+<wsdl:input message="tns:RemoveFileHttpGetIn"/>
+<wsdl:output message="tns:RemoveFileHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitTitleStatus">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Title handShake</wsdl:documentation>
+<wsdl:input message="tns:GPSSubmitTitleStatusHttpGetIn"/>
+<wsdl:output message="tns:GPSSubmitTitleStatusHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSGetPinCode">
+<wsdl:input message="tns:GPSGetPinCodeHttpGetIn"/>
+<wsdl:output message="tns:GPSGetPinCodeHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSXmlGetPinCode">
+<wsdl:input message="tns:GPSXmlGetPinCodeHttpGetIn"/>
+<wsdl:output message="tns:GPSXmlGetPinCodeHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSAttachedPdfInvoice">
+<wsdl:input message="tns:GPSAttachedPdfInvoiceHttpGetIn"/>
+<wsdl:output message="tns:GPSAttachedPdfInvoiceHttpGetOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:portType name="GlobalPrintingServicesHttpPost">
+<wsdl:operation name="GPSSubmitOrder">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Receive Order file content will check that xml is valid and customer ref is not duplicated</wsdl:documentation>
+<wsdl:input message="tns:GPSSubmitOrderHttpPostIn"/>
+<wsdl:output message="tns:GPSSubmitOrderHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitSetupTitle">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Receive Setup Title xml will check xml is valid</wsdl:documentation>
+<wsdl:input message="tns:GPSSubmitSetupTitleHttpPostIn"/>
+<wsdl:output message="tns:GPSSubmitSetupTitleHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitOrderAck">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Receiving partner Order Acknowledgement</wsdl:documentation>
+<wsdl:input message="tns:GPSSubmitOrderAckHttpPostIn"/>
+<wsdl:output message="tns:GPSSubmitOrderAckHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitASN">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Receiving partner ASN</wsdl:documentation>
+<wsdl:input message="tns:GPSSubmitASNHttpPostIn"/>
+<wsdl:output message="tns:GPSSubmitASNHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="RemoveFile">
+<wsdl:input message="tns:RemoveFileHttpPostIn"/>
+<wsdl:output message="tns:RemoveFileHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitTitleStatus">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Title handShake</wsdl:documentation>
+<wsdl:input message="tns:GPSSubmitTitleStatusHttpPostIn"/>
+<wsdl:output message="tns:GPSSubmitTitleStatusHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSGetPinCode">
+<wsdl:input message="tns:GPSGetPinCodeHttpPostIn"/>
+<wsdl:output message="tns:GPSGetPinCodeHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSXmlGetPinCode">
+<wsdl:input message="tns:GPSXmlGetPinCodeHttpPostIn"/>
+<wsdl:output message="tns:GPSXmlGetPinCodeHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="GPSAttachedPdfInvoice">
+<wsdl:input message="tns:GPSAttachedPdfInvoiceHttpPostIn"/>
+<wsdl:output message="tns:GPSAttachedPdfInvoiceHttpPostOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="GlobalPrintingServicesSoap" type="tns:GlobalPrintingServicesSoap">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="GPSSubmitOrder">
+<soap:operation soapAction="http://gps.co.uk/GPSSubmitOrder" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitSetupTitle">
+<soap:operation soapAction="http://gps.co.uk/GPSSubmitSetupTitle" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitOrderAck">
+<soap:operation soapAction="http://gps.co.uk/GPSSubmitOrderAck" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitASN">
+<soap:operation soapAction="http://gps.co.uk/GPSSubmitASN" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="RemoveFile">
+<soap:operation soapAction="http://gps.co.uk/RemoveFile" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitTitleStatus">
+<soap:operation soapAction="http://gps.co.uk/GPSSubmitTitleStatus" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSGetPinCode">
+<soap:operation soapAction="http://gps.co.uk/GPSGetPinCode" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSXmlGetPinCode">
+<soap:operation soapAction="http://gps.co.uk/GPSXmlGetPinCode" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSAttachedPdfInvoice">
+<soap:operation soapAction="http://gps.co.uk/GPSAttachedPdfInvoice" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="GlobalPrintingServicesSoap12" type="tns:GlobalPrintingServicesSoap">
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="GPSSubmitOrder">
+<soap12:operation soapAction="http://gps.co.uk/GPSSubmitOrder" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitSetupTitle">
+<soap12:operation soapAction="http://gps.co.uk/GPSSubmitSetupTitle" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitOrderAck">
+<soap12:operation soapAction="http://gps.co.uk/GPSSubmitOrderAck" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitASN">
+<soap12:operation soapAction="http://gps.co.uk/GPSSubmitASN" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="RemoveFile">
+<soap12:operation soapAction="http://gps.co.uk/RemoveFile" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitTitleStatus">
+<soap12:operation soapAction="http://gps.co.uk/GPSSubmitTitleStatus" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSGetPinCode">
+<soap12:operation soapAction="http://gps.co.uk/GPSGetPinCode" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSXmlGetPinCode">
+<soap12:operation soapAction="http://gps.co.uk/GPSXmlGetPinCode" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSAttachedPdfInvoice">
+<soap12:operation soapAction="http://gps.co.uk/GPSAttachedPdfInvoice" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="GlobalPrintingServicesHttpGet" type="tns:GlobalPrintingServicesHttpGet">
+<http:binding verb="GET"/>
+<wsdl:operation name="GPSSubmitOrder">
+<http:operation location="/GPSSubmitOrder"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitSetupTitle">
+<http:operation location="/GPSSubmitSetupTitle"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitOrderAck">
+<http:operation location="/GPSSubmitOrderAck"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitASN">
+<http:operation location="/GPSSubmitASN"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="RemoveFile">
+<http:operation location="/RemoveFile"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output/>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitTitleStatus">
+<http:operation location="/GPSSubmitTitleStatus"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSGetPinCode">
+<http:operation location="/GPSGetPinCode"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSXmlGetPinCode">
+<http:operation location="/GPSXmlGetPinCode"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSAttachedPdfInvoice">
+<http:operation location="/GPSAttachedPdfInvoice"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="GlobalPrintingServicesHttpPost" type="tns:GlobalPrintingServicesHttpPost">
+<http:binding verb="POST"/>
+<wsdl:operation name="GPSSubmitOrder">
+<http:operation location="/GPSSubmitOrder"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitSetupTitle">
+<http:operation location="/GPSSubmitSetupTitle"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitOrderAck">
+<http:operation location="/GPSSubmitOrderAck"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitASN">
+<http:operation location="/GPSSubmitASN"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="RemoveFile">
+<http:operation location="/RemoveFile"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output/>
+</wsdl:operation>
+<wsdl:operation name="GPSSubmitTitleStatus">
+<http:operation location="/GPSSubmitTitleStatus"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSGetPinCode">
+<http:operation location="/GPSGetPinCode"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSXmlGetPinCode">
+<http:operation location="/GPSXmlGetPinCode"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GPSAttachedPdfInvoice">
+<http:operation location="/GPSAttachedPdfInvoice"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="GlobalPrintingServices">
+<wsdl:port name="GlobalPrintingServicesSoap" binding="tns:GlobalPrintingServicesSoap">
+<soap:address location="https://partners.rowebooks.co.uk/gpstest/GPSInterface.asmx"/>
+</wsdl:port>
+<wsdl:port name="GlobalPrintingServicesSoap12" binding="tns:GlobalPrintingServicesSoap12">
+<soap12:address location="https://partners.rowebooks.co.uk/gpstest/GPSInterface.asmx"/>
+</wsdl:port>
+<wsdl:port name="GlobalPrintingServicesHttpGet" binding="tns:GlobalPrintingServicesHttpGet">
+<http:address location="https://partners.rowebooks.co.uk/gpstest/GPSInterface.asmx"/>
+</wsdl:port>
+<wsdl:port name="GlobalPrintingServicesHttpPost" binding="tns:GlobalPrintingServicesHttpPost">
+<http:address location="https://partners.rowebooks.co.uk/gpstest/GPSInterface.asmx"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

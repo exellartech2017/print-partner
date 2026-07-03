@@ -1,0 +1,33 @@
+{
+  "booktype": {
+    "Soft": "Soft",
+    "SQB": "SQB",
+    "Hard": "Hard",
+    "Saddlestitch": "Saddlestitch",
+    "Coilbind": "Coilbind"
+  },
+  "paperstock": {
+    "90gsmSilk": "90gsmSilk",
+    "110gsmC": "110gsmM",
+    "60gsm": "60gsm",
+    "70gsm": "70gsm",
+    "130gsmSmooth": "130gsmSmooth",
+    "130gsmSmMono": "150gsmSmooth",
+    "100gsm": "170gsmSmooth"
+  },
+  "lamination": {
+    "Gloss": "Gloss",
+    "Matt": "Matt"
+  },
+  "shipping": {
+    "Standard": "Standard",
+    "Express": "Express",
+    "Collection": "Collection",
+    "CheapestMethod": "Door to Door"
+  },
+  "credentials": {
+    "ARE": "test",
+    "GGGGGG": "HHHHHH",
+    "GGGGG": "HHHHH"
+  }
+}
