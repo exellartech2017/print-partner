@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
 <wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://gps.co.uk/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://gps.co.uk/">
 <wsdl:types>
 <s:schema elementFormDefault="qualified" targetNamespace="http://gps.co.uk/">
@@ -794,16 +794,16 @@
 </wsdl:binding>
 <wsdl:service name="GlobalPrintingServices">
 <wsdl:port name="GlobalPrintingServicesSoap" binding="tns:GlobalPrintingServicesSoap">
-<soap:address location="https://partners.rowebooks.co.uk/gpstest/GPSInterface.asmx"/>
+<soap:address location="https://partners.rowebooks.co.uk/gps/GPSInterface.asmx"/>
 </wsdl:port>
 <wsdl:port name="GlobalPrintingServicesSoap12" binding="tns:GlobalPrintingServicesSoap12">
-<soap12:address location="https://partners.rowebooks.co.uk/gpstest/GPSInterface.asmx"/>
+<soap12:address location="https://partners.rowebooks.co.uk/gps/GPSInterface.asmx"/>
 </wsdl:port>
 <wsdl:port name="GlobalPrintingServicesHttpGet" binding="tns:GlobalPrintingServicesHttpGet">
-<http:address location="https://partners.rowebooks.co.uk/gpstest/GPSInterface.asmx"/>
+<http:address location="https://partners.rowebooks.co.uk/gps/GPSInterface.asmx"/>
 </wsdl:port>
 <wsdl:port name="GlobalPrintingServicesHttpPost" binding="tns:GlobalPrintingServicesHttpPost">
-<http:address location="https://partners.rowebooks.co.uk/gpstest/GPSInterface.asmx"/>
+<http:address location="https://partners.rowebooks.co.uk/gps/GPSInterface.asmx"/>
 </wsdl:port>
 </wsdl:service>
 </wsdl:definitions>
