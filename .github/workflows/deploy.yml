@@ -1,0 +1,39 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            set -e
+            source ~/.bashrc
+            cd ~/print-partner
+            git fetch origin main
+            git reset --hard origin/main
+
+            cd ~/print-partner/backend
+            npm install
+            pm2 restart print-partner-backend --update-env
+
+            cd ~/print-partner/atlas
+            npm install
+            npm run build
+            pm2 restart print-partner-frontend --update-env
+
+            pm2 save
