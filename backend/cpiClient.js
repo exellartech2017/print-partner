@@ -10,7 +10,12 @@ const creds = {
 let clientPromise;
 const getClient = () => {
   if (!clientPromise && process.env.CPI_WSDL) {
-    clientPromise = soap.createClientAsync(process.env.CPI_WSDL);
+    clientPromise = soap
+      .createClientAsync(process.env.CPI_WSDL)
+      .catch((err) => {
+        clientPromise = null;
+        throw err;
+      });
   }
   return clientPromise;
 };
