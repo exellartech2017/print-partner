@@ -1043,7 +1043,7 @@
 
     <wsdl:service name="GlobalPrintingServices">
         <wsdl:port name="GlobalPrintingServicesSoap" binding="tns:GlobalPrintingServicesSoap">
-            <soap:address location="http://localhost:3000/soap"/>
+            <soap:address location="https://api.atlaspodme.com/soap"/>
         </wsdl:port>
     </wsdl:service>
 
